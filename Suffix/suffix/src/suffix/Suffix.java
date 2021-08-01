@@ -4,9 +4,15 @@
  * and open the template in the editor.
  */
 package suffix;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
+/**
+ *
+ * @author ACER
+ */
 public class Suffix {
 
     private String[] text;
@@ -73,17 +79,34 @@ public class Suffix {
             System.out.println(suffix[iterate] + "\t" + index[iterate]);
         }
     }
- 
- 
-    public static void main(String...arg)throws IOException
-    {
+    
+    public static void main(String[] args) throws IOException {
+        boolean proses = true;
+        String pilih;
+
+        Scanner ds = new Scanner(System.in);
+        
+         while (proses) {
+        
         String text = "";
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Enter the Text String ");
+        System.out.print("Enter the Text String : ");
         text = reader.readLine();
- 
+        
         Suffix suffixarray = new Suffix(text);
         suffixarray.createSuffixArray();
+        
+        System.out.println("Apakah Anda Ingin Melanjutkan ? : ");
+            System.out.print("Jawab [ya/tidak] > ");
+            pilih = ds.nextLine();
+            System.out.println("----------------------------------------");
+
+            if (pilih.equalsIgnoreCase("tidak")) {
+
+                proses = false;
+
+            }
+         }
     }
     
 }
